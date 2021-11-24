@@ -67,3 +67,36 @@ class TestSystem_SetNumberOfReplics(unittest.TestCase):
     def test_wrong_number(self):
         with self.assertRaises(ValueError):
             System(0)
+
+
+class TestSystem_Stats(unittest.TestCase):
+    def test_empty_2_repls(self):
+        system = System(2)
+        stats = system.stats()
+        self.assertEqual(stats['main'], 0)
+        self.assertEqual(stats['repl'], [0, 0])
+
+    def test_empty_3_repls(self):
+        system = System(3)
+        stats = system.stats()
+        self.assertEqual(stats['main'], 0)
+        self.assertEqual(stats['repl'], [0, 0, 0])
+
+    def test_read_data_once(self):
+        system = System(2)
+        system.add_record(Record(1))
+        system.sync()
+        system.get_record(1)
+        stats = system.stats()
+        self.assertEqual(stats['main'], 0)
+        self.assertEqual(stats['repl'], [1, 0])
+
+    def test_read_data_many_times(self):
+        system = System(2)
+        system.add_record(Record(1))
+        system.sync()
+        for _ in range(10):
+            system.get_record(1)
+        stats = system.stats()
+        self.assertEqual(stats['main'], 0)
+        self.assertEqual(stats['repl'], [5, 5])

@@ -12,6 +12,14 @@ class System:
         self.__repls = []
         for _ in range(repls_num):
             self.__repls.append(Database())
+
+        self.__stats = {
+            'main': 0,
+            'repl': [],
+        }
+        for _ in range(repls_num):
+            self.__stats['repl'].append(0)
+
         self.__ind = 0
 
     def get_main(self):
@@ -34,6 +42,7 @@ class System:
     def get_record(self, record_id):
         """Get record by ID."""
         rec = self.__repls[self.__ind].get_record(record_id)
+        self.__stats['repl'][self.__ind] += 1
         self.__update_ind()
         if rec:
             return rec
@@ -42,8 +51,13 @@ class System:
     def get_all(self):
         """Return all records."""
         res = self.__repls[self.__ind].get_all()
+        self.__stats['repl'][self.__ind] += 1
         self.__update_ind()
         return res
+
+    def stats(self):
+        """Return statistics of readings."""
+        return self.__stats
 
     def __update_ind(self):
         self.__ind = (self.__ind + 1) % len(self.__repls)
