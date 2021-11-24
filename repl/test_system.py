@@ -48,3 +48,22 @@ class TestSystem(unittest.TestCase):
         system = System()
         system.add_record(Record(1))
         self.assertIsNotNone(system.get_record(1))
+
+
+class TestSystem_SetNumberOfReplics(unittest.TestCase):
+    def test_1(self):
+        system = System(1)
+        system.get_repl(0)
+        with self.assertRaises(IndexError):
+            system.get_repl(1)
+
+    def test_2(self):
+        system = System(2)
+        system.get_repl(0)
+        system.get_repl(1)
+        with self.assertRaises(IndexError):
+            system.get_repl(2)
+
+    def test_wrong_number(self):
+        with self.assertRaises(ValueError):
+            System(0)

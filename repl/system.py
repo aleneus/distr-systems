@@ -4,9 +4,14 @@ from db import Database
 
 class System:
     """System with replication."""
-    def __init__(self):
+    def __init__(self, repls_num=1):
+        if repls_num < 1:
+            raise ValueError("repls_num must be positive")
+
         self.__main = Database()
-        self.__repls = [Database(), Database()]
+        self.__repls = []
+        for _ in range(repls_num):
+            self.__repls.append(Database())
         self.__ind = 0
 
     def get_main(self):

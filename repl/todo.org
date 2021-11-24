@@ -1,6 +1,5 @@
 * DONE ref: DistrDb: rename
 * DONE ref: split files
-* TODO ref: ? + base class for database
-* TODO feat: _sync: implement
-* TODO feat: System: set number of replics
+* DONE feat: System: set number of replics
 * TODO feat: System: change main db
+* TODO feat: _sync: implement
