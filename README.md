@@ -30,6 +30,8 @@
 Ссылки:
 
 * [Шардирование vs репликация: масштабируем БД](https://zen.yandex.ru/media/id/5af88d8c482677990692cd7c/shardirovanie-vs-replikaciia-masshtabiruem-bd-5cfb901e83e84200af3e1dfa)
+* [Теория шардирования](https://habr.com/ru/company/oleg-bunin/blog/433370/)
+* [Шардирование баз данных](https://ru.bmstu.wiki/%D0%A8%D0%B0%D1%80%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B1%D0%B0%D0%B7_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
 
 ## 5. Блокчейн
 
