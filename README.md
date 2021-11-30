@@ -39,3 +39,10 @@
 
 При разворачивании системы на "компьютерах" базовой библиотеки (задача 1) полезно разобрать материал [Создаем Blockchain с нуля на Python](https://python-scripts.com/blockchain). Если такое разворачивание покажется трудным или бессмысленным, то можно повторить
 реализацию с Flask. Это будет очень полезно с точки зрения освоения технологий.
+
+## 6. BitTorrent
+
+Ссылки:
+
+* [Как работают торренты и насколько это законно ](https://club.dns-shop.ru/blog/t-326-internet/44272-kak-rabotaut-torrentyi-i-naskolko-eto-zakonno/)
+* [BitTorrent](https://ru.bmstu.wiki/BitTorrent)
