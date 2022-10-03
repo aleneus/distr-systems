@@ -1,5 +1,6 @@
 import unittest
 from comp import Computer
+from iface import Iface
 
 
 class TestComp(unittest.TestCase):
@@ -16,3 +17,19 @@ class TestComp(unittest.TestCase):
         comp.set_iface(iface)
 
         self.assertEqual(comp.iface(), iface)
+
+
+class TestComp_ping(unittest.TestCase):
+    def no_iface(self):
+        comp = Computer(0)
+        ans = comp.ping("1.2.3.4")
+        self.assertEqual(ans, "no iface")
+
+    def have_iface_no_network(self):
+        comp = Computer(0)
+
+        iface = Iface()
+        comp.set_iface(iface)
+
+        ans = comp.ping("1.2.3.4")
+        self.assertEqual(ans, "no network")

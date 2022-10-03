@@ -16,3 +16,9 @@ class Computer:
     def iface(self):
         """Return network interface."""
         return self.__iface
+
+    def ping(self, addr):
+        if self.iface() is not None:
+            return self.iface().ping()
+
+        return "no iface"
