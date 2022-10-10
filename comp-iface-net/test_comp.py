@@ -27,9 +27,6 @@ class TestComp_ping(unittest.TestCase):
 
     def have_iface_no_network(self):
         comp = Computer(0)
-
-        iface = Iface()
-        comp.set_iface(iface)
-
+        comp.set_iface(Iface())
         ans = comp.ping("1.2.3.4")
         self.assertEqual(ans, "no network")

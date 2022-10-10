@@ -1,1 +1,6 @@
 feat: set addr automatically if empty
+ref: add_comp -> add_host
+ref: Computer -> Host
+feat: ping: loopback
+feat: net: remove computer
+test: net.add_host: addrs are the same

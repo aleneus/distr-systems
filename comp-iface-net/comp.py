@@ -18,7 +18,7 @@ class Computer:
         return self.__iface
 
     def ping(self, addr):
-        if self.iface() is not None:
-            return self.iface().ping()
+        if self.iface() is None:
+            return "no iface"
 
-        return "no iface"
+        return self.iface().ping(addr)

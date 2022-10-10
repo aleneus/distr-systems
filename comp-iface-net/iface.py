@@ -9,13 +9,18 @@ class Iface:
     def addr(self):
         return self.__addr
 
-    def ping(self):
+    def ping(self, addr):
         if self.__net is None:
             return "no network"
 
-        return "no answer"
+        return self.__net.ping(addr)
 
     def connect(self, net):
         self.__net = net
 
-    # TODO feat: + disconnet
+    def disconnect(self):
+        self.__net.del_host(self.addr())
+        self.__net = None
+
+    def connected(self):
+        return self.__net is not None
