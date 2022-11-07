@@ -1,0 +1,6 @@
+[X] ref: comp -> host
+[X] test: net.add_host: addrs are the same
+[X] feat: net: remove computer
+[X] feat: ping: touch host
+[ ] feat: set addr automatically if empty
+[ ] feat: ping: loopback
