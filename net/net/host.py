@@ -1,4 +1,4 @@
-"""Here the Host stub is implemented."""
+"""Here the host stub is implemented."""
 
 
 class Host:
@@ -11,18 +11,19 @@ class Host:
     def set_iface(self, iface):
         """Set network interface."""
         self.__iface = iface
+        self.__iface.set_host(self)
 
     def iface(self):
         """Return network interface."""
         return self.__iface
 
-    def ping(self, addr):
-        """Send ping to addr."""
+    def call(self, addr):
+        """Call to addr."""
         if self.iface() is None:
             return "no iface"
 
-        return self.iface().ping(addr)
+        return self.iface().call(addr)
 
-    def request_ping(self):
-        """Process incoming ping."""
+    def request_call(self):
+        """Process incoming call."""
         return f'id {self.__host_id}'

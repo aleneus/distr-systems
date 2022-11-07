@@ -1,5 +1,6 @@
 import unittest
 from net.iface import Iface
+from net.net import Net
 
 
 class TestIface(unittest.TestCase):

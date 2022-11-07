@@ -5,25 +5,25 @@ class Net:
     """Net is the network stub."""
 
     def __init__(self):
-        self.__hosts = {}
+        self.__ifaces = {}
 
-    def add_host(self, host, addr):
+    def add(self, iface, addr):
         """Add host to network."""
-        if addr in self.__hosts:
+        if addr in self.__ifaces:
             raise ValueError(f'have host with addr {addr} already')
 
-        host.iface().set_addr(addr)
-        host.iface().connect(self)
+        iface.set_addr(addr)
+        iface.connect(self)
 
-        self.__hosts[addr] = host
+        self.__ifaces[addr] = iface
 
-    def del_host(self, addr):
+    def remove(self, addr):
         """Remove host from network."""
-        del self.__hosts[addr]
+        del self.__ifaces[addr]
 
-    def ping(self, addr):
-        """Send ping to addr."""
+    def call(self, addr):
+        """Call to addr."""
         try:
-            return f"answer from {addr} ({self.__hosts[addr].request_ping()})"
+            return f"answer from {addr} ({self.__ifaces[addr].request_call()})"
         except KeyError:
             return "no answer"
